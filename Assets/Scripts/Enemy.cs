@@ -5,8 +5,9 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float stoppingDistance = 1.5f;
-    public Transform player;
+    public GameObject player;
     public BaseStatsContainer enemyStat;
+    private PlayerAttack playerAttack;
 
     private Rigidbody2D rb;
     private HealthComponent healthComponent;
@@ -18,10 +19,11 @@ public class Enemy : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         healthComponent = GetComponent<HealthComponent>();
+        playerAttack = player.GetComponent<PlayerAttack>();
 
         if (player == null)
         {
-            player = GameObject.FindGameObjectWithTag("Player").transform;
+            player = GameObject.FindGameObjectWithTag("Player");
         }
 
         if (healthComponent == null)
@@ -48,10 +50,10 @@ public class Enemy : MonoBehaviour
             return;
         }
 
-        Vector2 direction = (player.position - transform.position).normalized;
+        Vector2 direction = (player.transform.position - transform.position).normalized;
         rb.velocity = direction * enemyStat.Speed;
 
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
         if (distanceToPlayer <= stoppingDistance)
         {
             rb.velocity = Vector2.zero;
@@ -61,27 +63,31 @@ public class Enemy : MonoBehaviour
 
     void HandleDeath(GameObject dead)
     {
-       
-        Destroy(dead);
-
-
-        
-            InstantiateBullet();
-        
-        
+        playerAttack.StartCoroutine(playerAttack.FreezeEnemy(dead, () =>
+        {
+            Destroy(dead);
+            InstantiateBullets();
+        }));
     }
 
-    void InstantiateBullet()
+    public void InstantiateBullets()
     {
-        for (int i = 0; i < 3; i++)
-        {
 
-        GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-        Vector2 directionToPlayer = (player.position - transform.position).normalized;
-        bullet.GetComponent<Rigidbody2D>().velocity = directionToPlayer * bulletSpeed;
-  
+        Vector2 directionToPlayer = (player.transform.position - transform.position).normalized;
+
+        for (int i = 0; i < 8; i++)
+        {
+            // Calculate rotation based on increments of 45 degrees
+            Quaternion rotation = Quaternion.Euler(0, 0, i * 45f);
+
+            // Calculate rotated direction
+            Vector2 rotatedDirection = rotation * directionToPlayer;
+
+            // Instantiate a bullet in the rotated direction
+            GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+            bullet.GetComponent<Rigidbody2D>().velocity = rotatedDirection * bulletSpeed;
         }
     }
-
-
 }
+    
+

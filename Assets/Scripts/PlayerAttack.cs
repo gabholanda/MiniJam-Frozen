@@ -31,7 +31,6 @@ using UnityEngine;
         void Attack()
         {
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
             // Perform AOE damage around the mouse coordinates
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(mousePosition, attackRadius);
 
@@ -58,4 +57,17 @@ using UnityEngine;
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(Camera.main.ScreenToWorldPoint(Input.mousePosition), attackRadius);
         }
+
+        public IEnumerator FreezeEnemy(GameObject enemy, System.Action onComplete)
+        {
+        Enemy enemyScript = enemy.GetComponent<Enemy>();
+        float originalSpeed = enemyScript.enemyStat.Speed;
+        enemyScript.enemyStat.Speed = 0.0f; 
+        yield return new WaitForSeconds(2.0f);
+        if (onComplete != null)
+        {
+            onComplete.Invoke();
+            enemyScript.enemyStat.Speed = originalSpeed;
+        }
+    }
     }
