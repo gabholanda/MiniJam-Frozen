@@ -6,7 +6,7 @@ public class HealthComponent : MonoBehaviour
 {
     [Min(0.0f)]
     [SerializeField]
-    private float CurrentHealth;
+    public float CurrentHealth;
     [Min(1.0f)]
     [SerializeField]
     private float MaxHealth;
@@ -34,4 +34,6 @@ public class HealthComponent : MonoBehaviour
             OnDeath?.Invoke(gameObject);
         }
     }
+
+
 }
