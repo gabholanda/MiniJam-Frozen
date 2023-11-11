@@ -61,9 +61,26 @@ public class Enemy : MonoBehaviour
 
     void HandleDeath(GameObject dead)
     {
-  
+       
         Destroy(dead);
 
+
+        
+            InstantiateBullet();
+        
+        
+    }
+
+    void InstantiateBullet()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+
+        GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+        Vector2 directionToPlayer = (player.position - transform.position).normalized;
+        bullet.GetComponent<Rigidbody2D>().velocity = directionToPlayer * bulletSpeed;
+  
+        }
     }
 
 
