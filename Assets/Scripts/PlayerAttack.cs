@@ -2,40 +2,53 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAttack : MonoBehaviour
-{
-
-    public float attackRadius = 2f;
-    public int attackDamage = 10;
-    public BaseStatsContainer playerStats;
-    void Update()
+    public class PlayerAttack : MonoBehaviour
     {
-        if (Input.GetButtonDown("Fire1"))
+        public float attackRadius = 2f;
+        public BaseStatsContainer playerStats;
+        public float attackCooldown = 1f; // Adjust as needed
+        private bool canAttack = true;
+
+        void Update()
         {
-            Attack();
-        }
-    }
-
-    void Attack()
-    {
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-        // Perform AOE damage around the mouse coordinates
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(mousePosition, attackRadius);
-
-        foreach (Collider2D enemy in hitEnemies)
-        {
-            HealthComponent healthComponent = enemy.GetComponent<HealthComponent>();
-
-            if (healthComponent != null)
+            if (Input.GetButtonDown("Fire1") && canAttack)
             {
-                // Calculate damage based on player's attack value
-                float damage = playerStats.Attack;
+                StartCoroutine(AttackWithCooldown());
+            }
+        }
 
-                // Apply damage to the enemy's health
-                healthComponent.SetCurrentHealth(healthComponent.CurrentHealth - damage);
+        IEnumerator AttackWithCooldown()
+        {
+            canAttack = false;
 
-                Debug.Log("Attacked " + enemy.name + " for " + damage + " damage");
+            Attack();
+
+            yield return new WaitForSeconds(attackCooldown);
+
+            canAttack = true;
+        }
+
+        void Attack()
+        {
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+            // Perform AOE damage around the mouse coordinates
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(mousePosition, attackRadius);
+
+            foreach (Collider2D enemy in hitEnemies)
+            {
+                HealthComponent healthComponent = enemy.GetComponent<HealthComponent>();
+
+                if (healthComponent != null)
+                {
+                    // Calculate damage based on player's attack value
+                    float damage = playerStats.Attack;
+
+                    // Apply damage to the enemy's health
+                    healthComponent.SetCurrentHealth(healthComponent.CurrentHealth - damage);
+
+                    Debug.Log("Attacked " + enemy.name + " for " + damage + " damage");
+                }
             }
         }
 
@@ -46,4 +59,3 @@ public class PlayerAttack : MonoBehaviour
             Gizmos.DrawWireSphere(Camera.main.ScreenToWorldPoint(Input.mousePosition), attackRadius);
         }
     }
-}
