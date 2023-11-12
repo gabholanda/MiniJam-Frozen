@@ -13,9 +13,7 @@ public class PlayerController : MonoBehaviour
     public float dashTimer = 0.5f;
     private bool isDashing;
     private bool isDashOnCooldown = false;
-    public float distace;
     public float wallSpawnDistance;
-    public float currentWallPos;
     private Vector2 dashStartPosition;
 
     // Start is called before the first frame update
