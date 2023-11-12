@@ -28,6 +28,10 @@ public class MeleeEnemy : Enemy
     public void TriggerMelee()
     {
         canMelee = false;
+        if (!animator)
+        {
+            return;
+        }
         animator.Play("Melee");
     }
 

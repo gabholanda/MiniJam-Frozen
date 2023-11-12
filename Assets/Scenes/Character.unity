@@ -371,8 +371,8 @@ GameObject:
   - component: {fileID: 1399863612}
   - component: {fileID: 1399863611}
   - component: {fileID: 1399863610}
-  - component: {fileID: 1399863614}
   - component: {fileID: 1399863615}
+  - component: {fileID: 1399863616}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -508,23 +508,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1399863614
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1399863609}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c410cd51916ab34297962aabc86fa08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stoppingDistance: 1.5
-  player: {fileID: 1621195679}
-  enemyStat: {fileID: 11400000, guid: fd45d2da469a11541a8d3140c92430f9, type: 2}
-  bulletPrefab: {fileID: 9173995185946024254, guid: 9983218d7f0d30b41b486e0a2414e3f1, type: 3}
-  bulletSpeed: 5
 --- !u!50 &1399863615
 Rigidbody2D:
   serializedVersion: 4
@@ -552,6 +535,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1399863616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399863609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 056262adbabcf044198fe6e71ba3ddbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stoppingDistance: 1.5
+  player: {fileID: 1621195675}
+  stats: {fileID: 11400000, guid: fd45d2da469a11541a8d3140c92430f9, type: 2}
+  bulletPrefab: {fileID: 9173995185946024254, guid: 9983218d7f0d30b41b486e0a2414e3f1, type: 3}
+  bulletSpeed: 5
+  meleePointOffset: 1
+  meleeCirlceRadius: 1
+  meleeCooldown: 0.5
+  meleeDamage: 1
 --- !u!1 &1621195675
 GameObject:
   m_ObjectHideFlags: 0
@@ -689,7 +693,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.484158, g: 0.7648855, b: 0.9056604, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -728,6 +732,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseStat: {fileID: 11400000, guid: 609a700db99f3914c87dc76c61f73b3e, type: 2}
   rb: {fileID: 1621195677}
+  dashTimer: 0.5
 --- !u!114 &1621195681
 MonoBehaviour:
   m_ObjectHideFlags: 0
