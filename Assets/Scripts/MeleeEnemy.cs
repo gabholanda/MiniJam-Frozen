@@ -17,15 +17,10 @@ public class MeleeEnemy : Enemy
         if (isInRange)
         {
             canMove = false;
-        }
-
-        if (canMelee)
-        {
-            TriggerMelee();
-        }
-        else
-        {
-            canMove = true;
+            if (canMelee)
+            {
+                TriggerMelee();
+            }
         }
     }
 
@@ -47,12 +42,26 @@ public class MeleeEnemy : Enemy
                 Debug.Log("Do damage on player: " + colliders[i].name);
             }
         }
+        canMove = true;
         StartCoroutine(MeleeCooldown());
     }
 
     public IEnumerator MeleeCooldown()
     {
         yield return new WaitForSeconds(meleeCooldown);
+        canMelee = true;
+    }
+
+    public override void DisableEnemy()
+    {
+        base.DisableEnemy();
+        canMelee = false;
+        StopCoroutine(MeleeCooldown());
+    }
+
+    public override void EnableEnemy()
+    {
+        base.EnableEnemy();
         canMelee = true;
     }
 }

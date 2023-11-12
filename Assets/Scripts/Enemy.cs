@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
     protected Vector2 cachedDirection;
     protected bool canMove = true;
     protected bool isInRange = false;
-     private PlayerAttack playerAttack;
+    private PlayerAttack playerAttack;
     public GameObject bulletPrefab;
     public float bulletSpeed = 5f;
     void Start()
@@ -95,6 +95,21 @@ public class Enemy : MonoBehaviour
             bullet.GetComponent<Rigidbody2D>().velocity = rotatedDirection * bulletSpeed;
         }
     }
+
+    public float GetSpeed()
+    {
+        return speed;
+    }
+
+    public virtual void DisableEnemy()
+    {
+        canMove = false;
+    }
+
+    public virtual void EnableEnemy()
+    {
+        canMove = true;
+    }
 }
-    
+
 
