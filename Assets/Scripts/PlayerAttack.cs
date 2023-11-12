@@ -8,7 +8,8 @@ public class PlayerAttack : MonoBehaviour
     public BaseStatsContainer playerStats;
     public float attackCooldown = 1f; // Adjust as needed
     private bool canAttack = true;
-
+    [SerializeField]
+    private GameObject clickAttack;
     void Update()
     {
         if (Input.GetButtonDown("Fire1") && canAttack)
@@ -33,6 +34,7 @@ public class PlayerAttack : MonoBehaviour
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         // Perform AOE damage around the mouse coordinates
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(mousePosition, attackRadius);
+        Instantiate(clickAttack, mousePosition, Quaternion.identity);
 
         foreach (Collider2D enemy in hitEnemies)
         {
@@ -67,7 +69,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Enemy"))
+        if (collision.CompareTag("Enemy"))
         {
             Enemy enemy = collision.GetComponent<Enemy>();
             enemy.StartCoroutine(FreezeEnemy(enemy));
