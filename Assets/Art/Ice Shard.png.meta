@@ -113,10 +113,10 @@ TextureImporter:
       name: Ice Shard_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 5
-        width: 7
-        height: 8
+        x: 0
+        y: 0
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -133,7 +133,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: c92e5af6d9b4e604abe5c682c3a5ec1e
     internalID: 0
     vertices: []
     indices: 
