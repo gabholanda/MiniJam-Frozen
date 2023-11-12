@@ -236,7 +236,12 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Fire Enemy Idle_0: -6601933500900154667
+      Fire Enemy Idle_1: -1677097851047472824
+      Fire Enemy Idle_2: -7782111440148299169
+      Fire Enemy Idle_3: -159116444990415061
+      Fire Enemy Idle_4: 8792866380612871304
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

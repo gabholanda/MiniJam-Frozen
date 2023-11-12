@@ -188,7 +188,10 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Main Character Dash Ending_0: 4098579399899522497
+      Main Character Dash Ending_1: -8621335550216230205
+      Main Character Dash Ending_2: -7212782339925653134
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

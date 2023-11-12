@@ -212,7 +212,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Fire Enemy Walking_0: 4856127344770611513
+      Fire Enemy Walking_1: -3748547984702914778
+      Fire Enemy Walking_2: 8254917152904749259
+      Fire Enemy Walking_3: 275853195549000145
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
