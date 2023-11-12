@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 795e367a32aa68f4399e493fce588ab3
+guid: ae323402dc307e2458125cab82055a35
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7638328008628789679
-    second: Frozen Ice Ladder_0
+      213: 4736975940716747472
+    second: Frozen Ice Ladder 1_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -106,28 +106,16 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Frozen Ice Ladder_0
+      name: Frozen Ice Ladder 1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 15
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -136,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fa16c30badac00a60800000000000000
-      internalID: 7638328008628789679
+      spriteID: 0da5eff358e1db140800000000000000
+      internalID: 4736975940716747472
       vertices: []
       indices: 
       edges: []
@@ -145,7 +133,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5c9792d5a9458a9438a0be341ed917de
     internalID: 0
     vertices: []
     indices: 
@@ -153,7 +141,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Frozen Ice Ladder_0: 7638328008628789679
+      Frozen Ice Ladder 1_0: 4736975940716747472
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
