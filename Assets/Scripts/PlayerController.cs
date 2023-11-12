@@ -13,6 +13,11 @@ public class PlayerController : MonoBehaviour
     public float dashTimer = 0.5f;
     private bool isDashing;
     private bool isDashOnCooldown;
+    public float distace;
+    public float wallSpawnDistance;
+    public float currentWallPos;
+    private Vector2 dashStartPosition;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +52,7 @@ public class PlayerController : MonoBehaviour
             if (!isDashOnCooldown)
             {
                 isDashing = true;
+                dashStartPosition = transform.position;
                 StartCoroutine(DashTimer());
             }
         }
@@ -65,11 +71,24 @@ public class PlayerController : MonoBehaviour
         while (Time.time - startTime < dashTimer)
         {
             rb.velocity = new Vector2(originalDirection.x * baseStat.dashSpeed, originalDirection.y * baseStat.dashSpeed);
+            float currentDistance = Vector2.Distance(transform.position, dashStartPosition);
+            if (currentDistance >= wallSpawnDistance)
+            {
+                SpawnWall();
+                dashStartPosition = transform.position; 
+            }
+
             yield return null;
         }
 
         rb.velocity = originalVelocity;
         isDashing = false;
+    }
+
+    void SpawnWall()
+    {
+        
+        Debug.Log("Wall spawned at: " + transform.position);
     }
 
     IEnumerator DashCooldown() {

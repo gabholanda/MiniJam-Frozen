@@ -140,7 +140,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Frozen Ice Tileset_0: -7352191185566511254
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
