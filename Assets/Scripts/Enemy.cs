@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
     private PlayerAttack playerAttack;
     public GameObject bulletPrefab;
     public float bulletSpeed = 5f;
-    void Start()
+    protected void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         healthComponent = GetComponent<HealthComponent>();
@@ -37,7 +37,7 @@ public class Enemy : MonoBehaviour
         speed = stats.Speed;
     }
 
-    public virtual void Update()
+    protected virtual void Update()
     {
         if (canMove)
         {
@@ -70,6 +70,7 @@ public class Enemy : MonoBehaviour
 
     protected void HandleDeath(GameObject dead)
     {
+        // Where are  we even getting playerAttack from?
         playerAttack.StartCoroutine(playerAttack.FreezeEnemy(dead, () =>
         {
             Destroy(dead);
@@ -77,7 +78,7 @@ public class Enemy : MonoBehaviour
         }));
     }
 
-    public void InstantiateBullets()
+    protected void InstantiateBullets()
     {
 
         Vector2 directionToPlayer = (player.transform.position - transform.position).normalized;

@@ -44,7 +44,7 @@ public class PlayerAttack : MonoBehaviour
                 float damage = playerStats.Attack;
 
                 // Apply damage to the enemy's health
-                healthComponent.SetCurrentHealth(healthComponent.CurrentHealth - damage);
+                healthComponent.ReceiveDamage(damage);
 
                 Debug.Log("Attacked " + enemy.name + " for " + damage + " damage");
             }

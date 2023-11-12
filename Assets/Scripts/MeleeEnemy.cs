@@ -1,17 +1,18 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MeleeEnemy : Enemy
 {
     [SerializeField]
-    private float meleePointOffset;
+    private float meleePointOffset = 1.0f;
     [SerializeField]
-    private float meleeCirlceRadius;
+    private float meleeCirlceRadius = 1.0f;
     [SerializeField]
-    private float meleeCooldown;
+    private float meleeCooldown = 0.5f;
+    [SerializeField]
+    private float meleeDamage = 1.0f;
     protected bool canMelee = true;
-    public override void Update()
+    protected override void Update()
     {
         base.Update();
         if (isInRange)
@@ -39,7 +40,8 @@ public class MeleeEnemy : Enemy
         {
             if (colliders[i].CompareTag("Player"))
             {
-                Debug.Log("Do damage on player: " + colliders[i].name);
+                HealthComponent healthComponent = colliders[i].GetComponent<HealthComponent>();
+                healthComponent.ReceiveDamage(meleeDamage);
             }
         }
         canMove = true;
