@@ -6,20 +6,22 @@ public class Enemy : MonoBehaviour
 {
     public float stoppingDistance = 1.5f;
     public Transform player;
-    public BaseStatsContainer enemyStat;
-
-    private Rigidbody2D rb;
-    private HealthComponent healthComponent;
-    private bool canMove = true;
-
+    public BaseStatsContainer stats;
+    protected float speed;
+    protected Rigidbody2D rb;
+    protected HealthComponent healthComponent;
+    protected Animator animator;
+    protected Vector2 cachedDirection;
+    protected bool canMove = true;
+    protected bool isInRange = false;
     public GameObject bulletPrefab;
     public float bulletSpeed = 5f;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         healthComponent = GetComponent<HealthComponent>();
-
-        if (player == null)
+        animator = GetComponent<Animator>();
+        if (!player)
         {
             player = GameObject.FindGameObjectWithTag("Player").transform;
         }
@@ -30,9 +32,11 @@ public class Enemy : MonoBehaviour
         }
 
         healthComponent.OnDeath += HandleDeath;
+
+        speed = stats.Speed;
     }
 
-    void Update()
+    public virtual void Update()
     {
         if (canMove)
         {
@@ -40,46 +44,44 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void MoveTowardsPlayer()
+    protected void MoveTowardsPlayer()
     {
-        if (player == null)
+        if (!player)
         {
             Debug.LogError("Player not found!");
             return;
         }
 
         Vector2 direction = (player.position - transform.position).normalized;
-        rb.velocity = direction * enemyStat.Speed;
+        cachedDirection = direction;
+        rb.velocity = direction * speed;
 
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
         if (distanceToPlayer <= stoppingDistance)
         {
             rb.velocity = Vector2.zero;
+            isInRange = true;
+            return;
         }
+        isInRange = false;
     }
 
 
-    void HandleDeath(GameObject dead)
+    protected void HandleDeath(GameObject dead)
     {
-       
         Destroy(dead);
-
-
-        
-            InstantiateBullet();
-        
-        
+        InstantiateBullet();
     }
 
-    void InstantiateBullet()
+    protected void InstantiateBullet()
     {
         for (int i = 0; i < 3; i++)
         {
 
-        GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-        Vector2 directionToPlayer = (player.position - transform.position).normalized;
-        bullet.GetComponent<Rigidbody2D>().velocity = directionToPlayer * bulletSpeed;
-  
+            GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+            Vector2 directionToPlayer = (player.position - transform.position).normalized;
+            bullet.GetComponent<Rigidbody2D>().velocity = directionToPlayer * bulletSpeed;
+
         }
     }
 
