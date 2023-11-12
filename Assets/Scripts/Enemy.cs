@@ -14,7 +14,6 @@ public class Enemy : MonoBehaviour
     protected Vector2 cachedDirection;
     protected bool canMove = true;
     protected bool isInRange = false;
-    private PlayerAttack playerAttack;
     public GameObject bulletPrefab;
     public float bulletSpeed = 5f;
     protected void Awake()
@@ -70,12 +69,9 @@ public class Enemy : MonoBehaviour
 
     protected void HandleDeath(GameObject dead)
     {
-        // Where are  we even getting playerAttack from?
-        playerAttack.StartCoroutine(playerAttack.FreezeEnemy(dead, () =>
-        {
-            Destroy(dead);
-            InstantiateBullets();
-        }));
+        // Maybe we could just trigger death animation and make it be destroyed at the end of it
+        Destroy(dead);
+        InstantiateBullets();
     }
 
     protected void InstantiateBullets()

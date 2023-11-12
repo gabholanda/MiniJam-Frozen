@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class RangedEnemy : Enemy
@@ -6,8 +7,6 @@ public class RangedEnemy : Enemy
     private float projectileSpeed = 1.0f;
     [SerializeField]
     private float rangedCooldown = 0.5f;
-    [SerializeField]
-    private float rangedDamage = 1.0f;
     protected bool canAttack = true;
 
     [SerializeField]
@@ -43,6 +42,25 @@ public class RangedEnemy : Enemy
         GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
 
         projectile.GetComponent<Rigidbody2D>().velocity = cachedDirection * projectileSpeed;
+        StopCoroutine(RangedCooldown());
+    }
 
+    public IEnumerator RangedCooldown()
+    {
+        yield return new WaitForSeconds(rangedCooldown);
+        canAttack = true;
+    }
+
+    public override void DisableEnemy()
+    {
+        base.DisableEnemy();
+        canAttack = false;
+        StopCoroutine(RangedCooldown());
+    }
+
+    public override void EnableEnemy()
+    {
+        base.EnableEnemy();
+        canAttack = true;
     }
 }

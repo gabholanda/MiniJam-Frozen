@@ -58,15 +58,19 @@ public class PlayerAttack : MonoBehaviour
         Gizmos.DrawWireSphere(Camera.main.ScreenToWorldPoint(Input.mousePosition), attackRadius);
     }
 
-    public IEnumerator FreezeEnemy(GameObject enemy, System.Action onComplete)
+    public IEnumerator FreezeEnemy(Enemy enemy)
     {
-        Enemy enemyScript = enemy.GetComponent<Enemy>();
-        enemyScript.DisableEnemy();
+        enemy.DisableEnemy();
         yield return new WaitForSeconds(2.0f);
-        if (onComplete != null)
+        enemy.EnableEnemy();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Enemy"))
         {
-            onComplete.Invoke();
-            enemyScript.EnableEnemy();
+            Enemy enemy = collision.GetComponent<Enemy>();
+            enemy.StartCoroutine(FreezeEnemy(enemy));
         }
     }
 }
