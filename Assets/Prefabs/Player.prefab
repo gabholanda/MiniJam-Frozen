@@ -209,6 +209,7 @@ MonoBehaviour:
   attackRadius: 2
   playerStats: {fileID: 11400000, guid: 609a700db99f3914c87dc76c61f73b3e, type: 2}
   attackCooldown: 1
+  clickAttack: {fileID: 944307912855670372, guid: ab4739af7dc37cf4f908bdd4a5a3a41c, type: 3}
 --- !u!95 &220576965875714686
 Animator:
   serializedVersion: 7

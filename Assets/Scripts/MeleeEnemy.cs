@@ -32,13 +32,14 @@ public class MeleeEnemy : Enemy
         {
             return;
         }
-        animator.Play("Melee");
+        animator.Play("Melee_Beginning");
     }
 
     // Add this function as an Event by the end of Melee animation
     public void Melee()
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(cachedDirection * meleePointOffset, meleeCirlceRadius);
+        Vector2 position = transform.position;
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(position + cachedDirection * meleePointOffset, meleeCirlceRadius);
 
         for (int i = 0; i < colliders.Length; i++)
         {
@@ -48,8 +49,13 @@ public class MeleeEnemy : Enemy
                 healthComponent.ReceiveDamage(meleeDamage);
             }
         }
-        canMove = true;
+        animator.Play("Melee_Ending");
         StartCoroutine(MeleeCooldown());
+    }
+
+    public void TriggerMeleeEnd()
+    {
+        canMove = true;
     }
 
     public IEnumerator MeleeCooldown()
