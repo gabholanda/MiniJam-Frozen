@@ -20,16 +20,23 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject, lifetime);
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+  
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         // Check if the bullet collides with an object tagged as "Player"
-        if (other.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             // Deal damage to the player (or implement your specific logic)
             // You might want to have a HealthComponent on the player to handle damage
-            other.GetComponent<HealthComponent>().ReceiveDamage(damage);
+            collision.gameObject.GetComponent<HealthComponent>().ReceiveDamage(damage);
             // Destroy the bullet when it hits the player
             Destroy(gameObject);
+        }
+        else if (collision.gameObject.CompareTag("Wall"))
+        {
+            Destroy(collision.gameObject.gameObject);   
+            Debug.Log("hit wall");
+
         }
         else
         {
