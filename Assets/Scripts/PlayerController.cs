@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public GameObject wallPrefab;
+    private GameObject spawnedWall;
     public BaseStatsContainer baseStat;
     Vector2 moveDirection;
 
@@ -100,7 +102,11 @@ public class PlayerController : MonoBehaviour
 
     void SpawnWall()
     {
-        Debug.Log("Wall spawned at: " + transform.position);
+        Vector2 wallSpawnPosition = new Vector2(transform.position.x, transform.position.y) - (moveDirection.normalized * wallSpawnDistance);
+
+        spawnedWall = Instantiate(wallPrefab, wallSpawnPosition, Quaternion.identity);
+        spawnedWall.GetComponent<Animator>().Play("Ice_Spawn");
+        Debug.Log("Wall spawned at: " + wallSpawnPosition);
     }
 
     IEnumerator DashCooldown()

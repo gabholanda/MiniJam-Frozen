@@ -1,25 +1,19 @@
 fileFormatVersion: 2
-guid: 72c6b9b086396be4896907ab47aa7ac9
+guid: 9fb2dd1f019936a42bb7ddbfa4973d0a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -275020463787452588
-    second: Click Attack Animation_0
+      213: 2406978933524002089
+    second: Ice Block Spawning_0
   - first:
-      213: 8530206250058621188
-    second: Click Attack Animation_1
+      213: -3181370154135188636
+    second: Ice Block Spawning_1
   - first:
-      213: -6396894234657085364
-    second: Click Attack Animation_2
+      213: -7049573206297650631
+    second: Ice Block Spawning_2
   - first:
-      213: -1467824106568374523
-    second: Click Attack Animation_3
-  - first:
-      213: 2312602145689710018
-    second: Click Attack Animation_4
-  - first:
-      213: 8423225494348977466
-    second: Click Attack Animation_5
+      213: -5053306696778295423
+    second: Ice Block Spawning_3
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -121,29 +115,17 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Click Attack Animation_0
+      name: Ice Block Spawning_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -151,20 +133,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4575cf5685eee2cf0800000000000000
-      internalID: -275020463787452588
+      spriteID: 925fb8a569e476120800000000000000
+      internalID: 2406978933524002089
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Click Attack Animation_1
+      name: Ice Block Spawning_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 18
         y: 0
-        width: 32
-        height: 32
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,20 +154,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 401af83b361616670800000000000000
-      internalID: 8530206250058621188
+      spriteID: 46b0ebf43b089d3d0800000000000000
+      internalID: -3181370154135188636
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Click Attack Animation_2
+      name: Ice Block Spawning_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 36
         y: 0
-        width: 32
-        height: 32
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,20 +175,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c482585f59aa937a0800000000000000
-      internalID: -6396894234657085364
+      spriteID: 93a5484e482ea2e90800000000000000
+      internalID: -7049573206297650631
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Click Attack Animation_3
+      name: Ice Block Spawning_3
       rect:
         serializedVersion: 2
-        x: 96
+        x: 54
         y: 0
-        width: 32
-        height: 32
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -214,50 +196,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 507ac3f70cd31abe0800000000000000
-      internalID: -1467824106568374523
+      spriteID: 1875d65355c0fd9b0800000000000000
+      internalID: -5053306696778295423
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Click Attack Animation_4
+      name: Ice Block Spawning_4
       rect:
         serializedVersion: 2
-        x: 128
+        x: 72
         y: 0
-        width: 32
-        height: 32
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 2cd24a81663081020800000000000000
-      internalID: 2312602145689710018
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Click Attack Animation_5
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a355fad75fe45e470800000000000000
-      internalID: 8423225494348977466
+      spriteID: 3b7c9b844032bea4485606e6052a6473
+      internalID: -1523366137
       vertices: []
       indices: 
       edges: []
@@ -265,7 +226,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 44722b36bd12a3244a92023de9706aa7
+    spriteID: 16b37f0c1aa7f4f489a6c18b37d84794
     internalID: 0
     vertices: []
     indices: 
@@ -273,12 +234,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Click Attack Animation_0: -275020463787452588
-      Click Attack Animation_1: 8530206250058621188
-      Click Attack Animation_2: -6396894234657085364
-      Click Attack Animation_3: -1467824106568374523
-      Click Attack Animation_4: 2312602145689710018
-      Click Attack Animation_5: 8423225494348977466
+      Ice Block Spawning_0: 2406978933524002089
+      Ice Block Spawning_1: -3181370154135188636
+      Ice Block Spawning_2: -7049573206297650631
+      Ice Block Spawning_3: -5053306696778295423
+      Ice Block Spawning_4: -1523366137
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

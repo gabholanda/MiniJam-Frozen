@@ -165,7 +165,7 @@ MonoBehaviour:
   stoppingDistance: 1.5
   player: {fileID: 0}
   stats: {fileID: 11400000, guid: fd45d2da469a11541a8d3140c92430f9, type: 2}
-  bulletPrefab: {fileID: 9173995185946024254, guid: 9983218d7f0d30b41b486e0a2414e3f1, type: 3}
+  bulletPrefab: {fileID: 7754016733733512354, guid: 2081abaf24efbd44f9131f024596585d, type: 3}
   bulletSpeed: 5
   meleePointOffset: 1
   meleeCirlceRadius: 1
