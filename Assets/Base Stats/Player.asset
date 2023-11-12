@@ -15,3 +15,5 @@ MonoBehaviour:
   Attack: 100
   MaxHealth: 100
   Speed: 3
+  dashSpeed: 10
+  dashCooldown: 2
