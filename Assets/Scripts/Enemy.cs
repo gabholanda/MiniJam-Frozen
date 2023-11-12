@@ -63,6 +63,7 @@ public class Enemy : MonoBehaviour
             isInRange = true;
             return;
         }
+        animator.Play("Walking");
         isInRange = false;
     }
 
