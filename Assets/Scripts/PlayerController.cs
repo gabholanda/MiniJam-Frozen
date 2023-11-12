@@ -13,14 +13,14 @@ public class PlayerController : MonoBehaviour
     public float dashTimer = 0.5f;
     private bool isDashing;
     private bool isDashOnCooldown = false;
-    public float distace;
     public float wallSpawnDistance;
-    public float currentWallPos;
     private Vector2 dashStartPosition;
 
+    private Animator animator;
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -40,6 +40,18 @@ public class PlayerController : MonoBehaviour
             verticalInput = Input.GetAxis("Vertical");
             moveDirection = new Vector2(horizontalInput, verticalInput);
             rb.velocity = new Vector2(moveDirection.x * baseStat.Speed, moveDirection.y * baseStat.Speed);
+            if (!animator)
+            {
+                return;
+            }
+            if (moveDirection.magnitude == 0)
+            {
+                animator.Play("Idle");
+            }
+            else
+            {
+                animator.Play("Walking");
+            }
         }
     }
 
@@ -50,8 +62,9 @@ public class PlayerController : MonoBehaviour
             if (!isDashOnCooldown)
             {
                 isDashing = true;
-                StartCoroutine(DashCooldown());
                 dashStartPosition = transform.position;
+                animator.Play("Dash_Beginning");
+                StartCoroutine(DashCooldown());
                 StartCoroutine(DashTimer());
             }
         }
@@ -72,11 +85,16 @@ public class PlayerController : MonoBehaviour
             if (currentDistance >= wallSpawnDistance)
             {
                 SpawnWall();
-                dashStartPosition = transform.position; 
+                dashStartPosition = transform.position;
             }
         }
-        isDashing = false;
 
+        animator.Play("Dash_Ending");
+    }
+
+    public void TriggerDashEnd()
+    {
+        isDashing = false;
         Move();
     }
 
@@ -86,7 +104,7 @@ public class PlayerController : MonoBehaviour
     }
 
     IEnumerator DashCooldown()
-     {
+    {
 
         isDashOnCooldown = true;
         yield return new WaitForSeconds(baseStat.dashCooldown);
