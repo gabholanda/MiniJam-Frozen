@@ -27,7 +27,7 @@ public class RangedEnemy : Enemy
     public void TriggerRanged()
     {
         canAttack = false;
-        animator.Play("Ranged");
+        animator.Play("Ranged_Beginning");
     }
 
     // Add this function as an Event by the middle of Ranged animation
@@ -42,13 +42,20 @@ public class RangedEnemy : Enemy
         GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
 
         projectile.GetComponent<Rigidbody2D>().velocity = cachedDirection * projectileSpeed;
-        StopCoroutine(RangedCooldown());
+        StartCoroutine(RangedCooldown());
+        animator.Play("Ranged_Ending");
     }
 
     public IEnumerator RangedCooldown()
     {
         yield return new WaitForSeconds(rangedCooldown);
         canAttack = true;
+    }
+
+    public void TriggerRangedAttackEnd()
+    {
+        canMove = true;
+        animator.Play("Idle");
     }
 
     public override void DisableEnemy()
