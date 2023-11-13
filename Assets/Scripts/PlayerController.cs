@@ -106,7 +106,6 @@ public class PlayerController : MonoBehaviour
 
         spawnedWall = Instantiate(wallPrefab, wallSpawnPosition, Quaternion.identity);
         spawnedWall.GetComponent<Animator>().Play("Ice_Spawn");
-        Debug.Log("Wall spawned at: " + wallSpawnPosition);
     }
 
     IEnumerator DashCooldown()
