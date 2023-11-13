@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
     protected bool isInRange = false;
     public GameObject bulletPrefab;
     public float bulletSpeed = 5f;
-    protected void Awake()
+    protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         healthComponent = GetComponent<HealthComponent>();
