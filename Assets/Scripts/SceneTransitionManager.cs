@@ -4,9 +4,9 @@ using UnityEngine.SceneManagement;
 
 public class SceneTransitionManager : MonoBehaviour
 {
-    private int enemiesRemaining;
+    private static int enemiesRemaining;
 
-    void Start()
+    void Awake()
     {
         // Count the enemies in the scene
         enemiesRemaining = GameObject.FindGameObjectsWithTag("Enemy").Length;
@@ -16,7 +16,7 @@ public class SceneTransitionManager : MonoBehaviour
     {
         // Decrement the count of remaining enemies
         enemiesRemaining--;
-
+        Debug.Log(enemiesRemaining);
         // Check if all enemies are defeated
         if (enemiesRemaining <= 0)
         {

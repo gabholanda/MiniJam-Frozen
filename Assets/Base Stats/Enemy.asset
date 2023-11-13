@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42a9a8092418745459f98c03c38612a4, type: 3}
   m_Name: Enemy
   m_EditorClassIdentifier: 
-  Attack: 10
+  Attack: 8
   MaxHealth: 100
-  Speed: 2
+  Speed: 5
   dashSpeed: 2
   dashCooldown: 0

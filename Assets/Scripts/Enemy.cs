@@ -67,10 +67,14 @@ public class Enemy : MonoBehaviour
     }
 
 
-    protected void HandleDeath(GameObject dead)
+    protected void HandleDeath(GameObject gameObject)
     {
+        if (!gameObject) {
+            return;
+
+        }
         sceneTransitionManager.EnemyDied();
-        Destroy(dead);
+        Destroy(gameObject);
         InstantiateBullets();
     }
 

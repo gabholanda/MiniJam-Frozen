@@ -209,7 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4098b6189ac5ede43a00765b041b9c02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRadius: 2
+  attackRadius: 1
   playerStats: {fileID: 11400000, guid: 609a700db99f3914c87dc76c61f73b3e, type: 2}
   attackCooldown: 1
   clickAttack: {fileID: 944307912855670372, guid: ab4739af7dc37cf4f908bdd4a5a3a41c, type: 3}
