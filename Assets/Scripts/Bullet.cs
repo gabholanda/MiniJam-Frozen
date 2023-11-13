@@ -20,8 +20,8 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject, lifetime);
     }
 
-  
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         // Check if the bullet collides with an object tagged as "Player"
         if (collision.gameObject.CompareTag("Player"))
@@ -34,9 +34,12 @@ public class Bullet : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Wall"))
         {
-            Destroy(collision.gameObject.gameObject);   
-            Debug.Log("hit wall");
-
+            Destroy(collision.gameObject);
+        }
+        else if (collision.gameObject.CompareTag("Enemy")
+            || collision.gameObject.CompareTag("Projectile"))
+        {
+            return;
         }
         else
         {

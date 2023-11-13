@@ -22,8 +22,9 @@ public class IceWall : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
+        if (!gameObject.scene.isLoaded) return;
         Instantiate(wallDestructionParticles, transform.position, Quaternion.identity);
     }
 }
