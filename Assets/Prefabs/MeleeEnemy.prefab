@@ -4927,6 +4927,7 @@ GameObject:
   - component: {fileID: 2017747708532913792}
   - component: {fileID: 1535260300148529241}
   - component: {fileID: 813791721982312614}
+  - component: {fileID: -2129559654933414750}
   m_Layer: 0
   m_Name: MeleeEnemy
   m_TagString: Enemy
@@ -4994,7 +4995,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 4856127344770611513, guid: 7a797410addb0ca4f87fb195209f24e0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -5033,6 +5034,7 @@ MonoBehaviour:
   stoppingDistance: 1
   player: {fileID: 0}
   stats: {fileID: 11400000, guid: fd45d2da469a11541a8d3140c92430f9, type: 2}
+  cachedDirection: {x: 0, y: 0}
   bulletPrefab: {fileID: 7754016733733512354, guid: 2081abaf24efbd44f9131f024596585d, type: 3}
   bulletSpeed: 5
   meleePointOffset: 1
@@ -5124,3 +5126,15 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: -0.06373584, y: -0.028327078}
   m_Radius: 0.22381106
+--- !u!114 &-2129559654933414750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2944309490983797438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 244e5d93c2647ca4fb647a6d1102651c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

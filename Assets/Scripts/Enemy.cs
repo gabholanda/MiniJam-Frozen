@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -11,7 +9,7 @@ public class Enemy : MonoBehaviour
     protected Rigidbody2D rb;
     protected HealthComponent healthComponent;
     protected Animator animator;
-    protected Vector2 cachedDirection;
+    public Vector2 cachedDirection;
     protected bool canMove = true;
     protected bool isInRange = false;
     public GameObject bulletPrefab;

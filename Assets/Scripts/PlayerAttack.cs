@@ -47,8 +47,6 @@ public class PlayerAttack : MonoBehaviour
 
                 // Apply damage to the enemy's health
                 healthComponent.ReceiveDamage(damage);
-
-                Debug.Log("Attacked " + enemy.name + " for " + damage + " damage");
             }
         }
     }

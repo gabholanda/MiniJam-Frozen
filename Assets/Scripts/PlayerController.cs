@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     public GameObject wallPrefab;
     private GameObject spawnedWall;
     public BaseStatsContainer baseStat;
-    Vector2 moveDirection;
+    public Vector2 moveDirection;
 
     [SerializeField] private Rigidbody2D rb;
     float horizontalInput;
