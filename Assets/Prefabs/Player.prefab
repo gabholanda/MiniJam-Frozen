@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2991254343031639231}
   - component: {fileID: 6307865157480644345}
   - component: {fileID: 220576965875714686}
+  - component: {fileID: -5135267798515828531}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -177,6 +178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wallPrefab: {fileID: 7913222239982728434, guid: 1a89d564f1afcd044a8e389742148119, type: 3}
   baseStat: {fileID: 11400000, guid: 609a700db99f3914c87dc76c61f73b3e, type: 2}
+  moveDirection: {x: 0, y: 0}
   rb: {fileID: 8962180351323982165}
   dashTimer: 0.5
   wallSpawnDistance: 1
@@ -233,3 +235,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-5135267798515828531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248484968487585583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 958bb442b6540224bbeb726ce95981c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

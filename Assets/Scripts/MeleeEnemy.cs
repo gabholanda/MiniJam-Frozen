@@ -12,6 +12,13 @@ public class MeleeEnemy : Enemy
     [SerializeField]
     private float meleeDamage = 1.0f;
     protected bool canMelee = true;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        meleeDamage = stats.Attack;
+    }
+
     protected override void Update()
     {
         base.Update();

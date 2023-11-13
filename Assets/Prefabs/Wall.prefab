@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 2983788431050654210}
   - component: {fileID: 6423007547356187992}
   - component: {fileID: 6948677384007969542}
+  - component: {fileID: -7961600614265372549}
+  - component: {fileID: 6121193038720088407}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Wall
@@ -29,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 7913222239982728434}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.5549076, y: 7.5428605, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -141,7 +143,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7913222239982728434}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -182,3 +184,30 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-7961600614265372549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7913222239982728434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ba7ce316a0625f49ae78055618a2827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useTimer: 1
+  timer: 5
+--- !u!114 &6121193038720088407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7913222239982728434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7431098f92984d74a8e7a3eba8e71d47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wallDestructionParticles: {fileID: 2216600073850649535, guid: 95759df52c40d094ab019e07a54cd05c, type: 3}
