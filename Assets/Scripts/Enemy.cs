@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     protected bool isInRange = false;
     public GameObject bulletPrefab;
     public float bulletSpeed = 5f;
+    public SceneTransitionManager sceneTransitionManager;
     protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -66,10 +67,14 @@ public class Enemy : MonoBehaviour
     }
 
 
-    protected void HandleDeath(GameObject dead)
+    protected void HandleDeath(GameObject gameObject)
     {
-        // Maybe we could just trigger death animation and make it be destroyed at the end of it
-        Destroy(dead);
+        if (!gameObject) {
+            return;
+
+        }
+        sceneTransitionManager.EnemyDied();
+        Destroy(gameObject);
         InstantiateBullets();
     }
 
